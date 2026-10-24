@@ -72,10 +72,18 @@ class RatingFacet implements SearchFacet
         $subjectClass = $context->dataClass();
         $options = [];
 
+        // One aggregate query for the whole subject class, then count each threshold against the context in PHP —
+        // instead of a GROUP BY … HAVING query per threshold.
+        $averageByProduct = $contextIds ? $this->averageRatingByProduct($subjectClass) : [];
+
         foreach ((array) self::config()->get('thresholds') as $threshold) {
             $threshold = (int) $threshold;
-            $matching = $this->productIdsWithMinRating($subjectClass, (float) $threshold);
-            $count = $contextIds ? count(array_intersect($matching, $contextIds)) : 0;
+            $count = 0;
+            foreach ($contextIds as $id) {
+                if (isset($averageByProduct[$id]) && $averageByProduct[$id] >= $threshold) {
+                    $count++;
+                }
+            }
             $value = (string) $threshold;
             $active = in_array($value, $selected, true);
             if ($count === 0 && !$active) {
@@ -114,6 +122,30 @@ class RatingFacet implements SearchFacet
      * @param class-string $subjectClass
      * @return array<int, int>
      */
+    /**
+     * Average approved rating per subject (product) across the subject class, as ONE GROUP BY query — the batched
+     * source for {@see getOptions()}'s per-threshold counts (which otherwise ran a GROUP BY … HAVING per threshold).
+     *
+     * @return array<int, float> productID => average rating
+     */
+    private function averageRatingByProduct(string $subjectClass): array
+    {
+        $classes = array_values(ClassInfo::subclassesFor($subjectClass));
+        $placeholders = implode(',', array_fill(0, count($classes), '?'));
+
+        $query = SQLSelect::create(['"SubjectID"', 'AVG("Rating") AS "AvgRating"'], '"SilverShop_Review"');
+        $query->addWhere(['"Approved" = ?' => 1]);
+        $query->addWhere(['"SubjectClass" IN (' . $placeholders . ')' => $classes]);
+        $query->setGroupBy('"SubjectID"');
+
+        $averages = [];
+        foreach ($query->execute() as $row) {
+            $averages[(int) $row['SubjectID']] = (float) $row['AvgRating'];
+        }
+
+        return $averages;
+    }
+
     private function productIdsWithMinRating(string $subjectClass, float $min): array
     {
         $classes = array_values(ClassInfo::subclassesFor($subjectClass));
