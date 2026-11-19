@@ -23,9 +23,9 @@ class RatingFacetTest extends SapphireTest
     protected function setUp(): void
     {
         parent::setUp();
-        // The rating facet plugs into silvershop/search (which itself needs silvershop/core); skip when absent.
+        // The rating facet plugs into silvershop-suite/search (which itself needs silvershop/core); skip when absent.
         if (!interface_exists('SilverShop\\Search\\Facet\\SearchFacet')) {
-            $this->markTestSkipped('silvershop/search is not installed');
+            $this->markTestSkipped('silvershop-suite/search is not installed');
         }
     }
 

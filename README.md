@@ -116,7 +116,7 @@ vendor/bin/sake tasks:SilverShop-Reviews-Task-SendReviewInvitationsTask --run --
 # preview one order's email without sending: ...?preview=<orderID>
 ```
 
-The sender identity (name + logo) comes from [`silvershop-suite/store-profile`](https://github.com/silvershop/silvershop-store-profile)
+The sender identity (name + logo) comes from [`silvershop-suite/store-profile`](https://github.com/silvershop-suite/silvershop-store-profile)
 when installed. Make sure a mail transport (`MAILER_DSN`) is configured for real delivery.
 
 ### External review providers (optional)

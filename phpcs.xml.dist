@@ -25,7 +25,7 @@
     </rule>
     <rule ref="PSR1.Files.SideEffects.FoundWithSymbols">
         <exclude-pattern>tests/bootstrap.php</exclude-pattern>
-        <!-- RatingFacet implements an OPTIONAL dependency's interface (silvershop/search) and is declared only
+        <!-- RatingFacet implements an OPTIONAL dependency's interface (silvershop-suite/search) and is declared only
              when it is present (if-guarded), so the module boots standalone without search. -->
         <exclude-pattern>src/Search/RatingFacet.php</exclude-pattern>
     </rule>

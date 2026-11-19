@@ -1,7 +1,7 @@
 <%-- Review-invitation email. Self-contained but styled to match the shop's shared flat transactional-email look
      (white card on a light canvas, #222 accents, shop-name/logo brand, flat black CTA — no dark bar / orange CTA).
      Kept self-contained (rather than including core's OrderEmailHeader/Footer) because the shared shell is not yet
-     in a tagged silvershop/core release; the optional logo brand still lights up via silvershop/store-profile's
+     in a tagged silvershop/core release; the optional logo brand still lights up via silvershop-suite/store-profile's
      $SiteConfig.ShopEmailBrand when installed. All copy is translatable. --%>
 <!DOCTYPE html>
 <html>

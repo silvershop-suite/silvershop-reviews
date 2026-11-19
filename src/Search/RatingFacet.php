@@ -12,15 +12,15 @@ use SilverStripe\ORM\DataList;
 use SilverStripe\ORM\Queries\SQLSelect;
 
 /**
- * "{n}★ and up" rating facet for silvershop/search. Ships in reviews (not the search core) so reviews owns its
- * filtering, and registers into the search FacetRegistry only when silvershop/search is installed (see
+ * "{n}★ and up" rating facet for silvershop-suite/search. Ships in reviews (not the search core) so reviews owns its
+ * filtering, and registers into the search FacetRegistry only when silvershop-suite/search is installed (see
  * _config/search.yml); reviews stays standalone otherwise (search is a suggest, not a requirement).
  *
  * Products are matched by the mean of their APPROVED reviews, via a grouped aggregate over the (unversioned, so
  * always-live) review table. The matched subject class follows the data class of the list being searched. For very
  * large review volumes a denormalised average column would avoid the per-render aggregate — a planned optimisation.
  *
- * silvershop/search is a suggest, not a requirement. The class is declared only when the SearchFacet interface is
+ * silvershop-suite/search is a suggest, not a requirement. The class is declared only when the SearchFacet interface is
  * present, so a reviews install without search (e.g. a core-free site) boots cleanly — otherwise the config class
  * manifest would try to reflect a class implementing a missing interface and fatal.
  */

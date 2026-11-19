@@ -7,7 +7,7 @@
  * product reviews, the verified-purchase Review↔Order link, the order-triggered invitation stack — so they
  * are attached here behind class_exists() guards and are simply never wired when core is absent.
  *
- * This mirrors silvershop/newsletter's guarded _config.php and keeps the module installable (and testable)
+ * This mirrors silvershop-suite/newsletter's guarded _config.php and keeps the module installable (and testable)
  * without silvershop/core, while lighting up every shop feature when it is present.
  */
 
