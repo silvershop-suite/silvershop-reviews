@@ -4,7 +4,7 @@
      behaviour, or set Review.collapse_write_form = false to drop it. --%>
 <script>
 (function(){
-    var wrap = document.currentScript.closest('.product-reviews__form');
+    var wrap = document.currentScript.closest('.product-reviews__form, .reviews__form');
     if(!wrap) return;
     var btn = wrap.querySelector('[data-review-toggle]');
     var body = wrap.querySelector('[data-review-formbody]');

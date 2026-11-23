@@ -10,7 +10,7 @@
 </style>
 <script>
 (function(){
-    var scope = document.currentScript.closest('.product-reviews__form') || document;
+    var scope = document.currentScript.closest('.product-reviews__form, .reviews__form') || document;
     var select = scope.querySelector('select[name="Rating"]');
     if(!select || select.getAttribute('data-stars-ready')) return;
     select.setAttribute('data-stars-ready','1');

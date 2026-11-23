@@ -3,6 +3,8 @@ nl:
     TITLE: 'Beoordeling'
     STARS: '{stars}★ en hoger'
   SilverShop\Reviews:
+    PagesLabel: 'Reviewpagina''s'
+    NoneYet: 'Nog geen reviews. Schrijf als eerste een review.'
     CompanyCount: '{count} beoordeling(en)'
     CompanyReviewTitle: 'Beoordeel ons bedrijf'
     ReadCompanyReviews: 'Lees onze beoordelingen'
@@ -178,3 +180,27 @@ nl:
   SilverShop\Reviews\Service\ReviewInvitationService:
     ReminderSubject: 'Een herinnering om je bestelling bij {shop} te beoordelen'
     Subject: 'Hoe was je bestelling bij {shop}?'
+  SilverShop\Reviews\Extension\ReviewablePageExtension:
+    CMSSummary: 'Gemiddelde beoordeling: {avg} / 5 uit {count} goedgekeurde review(s).'
+    Reviews: 'Reviews'
+    ReviewsInfo: 'Goedgekeurde reviews verschijnen op de site en tellen mee voor de beoordeling. Voeg hier een review toe, of laat bezoekers er zelf een plaatsen, en vink "Goedgekeurd" aan om te publiceren.'
+    SaveFirst: 'Sla dit item eerst op om de reviews te beheren.'
+  SilverShop\Reviews\Form\ReviewForm:
+    AddPhoto: 'Voeg een foto toe'
+    AuthorEmail: 'Je e-mailadres'
+    AuthorName: 'Je naam'
+    BadRating: 'Kies een beoordeling tussen 1 en 5.'
+    ChooseRating: '(kies)'
+    Cons: 'Wat kan beter? (één per regel)'
+    Content: 'Je review'
+    EmailPrivate: 'Wordt niet gepubliceerd.'
+    Pros: 'Wat was goed? (één per regel)'
+    Rating: 'Jouw beoordeling'
+    Submit: 'Review versturen'
+    Thanks: 'Bedankt voor je review.'
+    ThanksModerated: 'Bedankt! Je review verschijnt zodra deze is goedgekeurd.'
+    Title: 'Titel'
+    TooFast: 'Wacht even voordat je nog een review verstuurt.'
+  SilverShop\Reviews\Service\ReviewPolicy:
+    GateMembers: 'Log in om een review te schrijven.'
+    GateVerified: 'Alleen geverifieerde klanten kunnen een review schrijven.'

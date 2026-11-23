@@ -3,6 +3,8 @@ es:
     TITLE: 'Valoración'
     STARS: '{stars}★ y más'
   SilverShop\Reviews:
+    PagesLabel: 'Páginas de reseñas'
+    NoneYet: 'Aún no hay reseñas. Sé el primero en dejar una.'
     CompanyCount: '{count} reseña(s)'
     CompanyReviewTitle: 'Valora nuestra empresa'
     ReadCompanyReviews: 'Lee nuestras reseñas'
@@ -178,3 +180,27 @@ es:
   SilverShop\Reviews\Service\ReviewInvitationService:
     ReminderSubject: 'Un recordatorio para valorar tu pedido de {shop}'
     Subject: '¿Cómo fue tu pedido de {shop}?'
+  SilverShop\Reviews\Extension\ReviewablePageExtension:
+    CMSSummary: 'Valoración media: {avg} / 5 de {count} reseña(s) aprobada(s).'
+    Reviews: 'Reseñas'
+    ReviewsInfo: 'Las reseñas aprobadas aparecen en el sitio y cuentan para la valoración. Añade una reseña aquí, o deja que los visitantes envíen la suya, y marca "Aprobada" para publicarla.'
+    SaveFirst: 'Guarda primero este elemento para gestionar sus reseñas.'
+  SilverShop\Reviews\Form\ReviewForm:
+    AddPhoto: 'Añadir una foto'
+    AuthorEmail: 'Tu correo electrónico'
+    AuthorName: 'Tu nombre'
+    BadRating: 'Elige una valoración entre 1 y 5.'
+    ChooseRating: '(elige)'
+    Cons: '¿Qué podría mejorar? (una por línea)'
+    Content: 'Tu reseña'
+    EmailPrivate: 'No se publica.'
+    Pros: '¿Qué estuvo bien? (una por línea)'
+    Rating: 'Tu valoración'
+    Submit: 'Enviar reseña'
+    Thanks: 'Gracias por tu reseña.'
+    ThanksModerated: '¡Gracias! Tu reseña aparecerá una vez aprobada.'
+    Title: 'Título'
+    TooFast: 'Espera un momento antes de enviar otra reseña.'
+  SilverShop\Reviews\Service\ReviewPolicy:
+    GateMembers: 'Inicia sesión para dejar una reseña.'
+    GateVerified: 'Solo los clientes verificados pueden dejar una reseña.'

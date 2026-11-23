@@ -3,6 +3,8 @@ fr:
     TITLE: 'Note'
     STARS: '{stars}★ et plus'
   SilverShop\Reviews:
+    PagesLabel: 'Pages d''avis'
+    NoneYet: 'Pas encore d''avis. Soyez le premier à en laisser un.'
     CompanyCount: '{count} avis'
     CompanyReviewTitle: 'Évaluez notre entreprise'
     ReadCompanyReviews: 'Lire nos avis'
@@ -178,3 +180,27 @@ fr:
   SilverShop\Reviews\Service\ReviewInvitationService:
     ReminderSubject: 'Un rappel pour évaluer votre commande de {shop}'
     Subject: 'Comment s''est passée votre commande de {shop} ?'
+  SilverShop\Reviews\Extension\ReviewablePageExtension:
+    CMSSummary: 'Note moyenne : {avg} / 5 sur {count} avis approuvé(s).'
+    Reviews: 'Avis'
+    ReviewsInfo: 'Les avis approuvés apparaissent sur le site et comptent dans la note. Ajoutez un avis ici, ou laissez les visiteurs soumettre le leur, puis cochez « Approuvé » pour le publier.'
+    SaveFirst: 'Enregistrez d''abord cet élément pour gérer ses avis.'
+  SilverShop\Reviews\Form\ReviewForm:
+    AddPhoto: 'Ajouter une photo'
+    AuthorEmail: 'Votre e-mail'
+    AuthorName: 'Votre nom'
+    BadRating: 'Veuillez choisir une note entre 1 et 5.'
+    ChooseRating: '(choisir)'
+    Cons: 'Qu''est-ce qui pourrait être amélioré ? (une par ligne)'
+    Content: 'Votre avis'
+    EmailPrivate: 'Non publié.'
+    Pros: 'Qu''est-ce qui était bien ? (une par ligne)'
+    Rating: 'Votre note'
+    Submit: 'Envoyer l''avis'
+    Thanks: 'Merci pour votre avis.'
+    ThanksModerated: 'Merci ! Votre avis apparaîtra une fois approuvé.'
+    Title: 'Titre'
+    TooFast: 'Veuillez patienter un instant avant d''envoyer un autre avis.'
+  SilverShop\Reviews\Service\ReviewPolicy:
+    GateMembers: 'Veuillez vous connecter pour laisser un avis.'
+    GateVerified: 'Seuls les clients vérifiés peuvent laisser un avis.'

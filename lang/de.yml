@@ -3,6 +3,8 @@ de:
     TITLE: 'Bewertung'
     STARS: '{stars}★ und mehr'
   SilverShop\Reviews:
+    PagesLabel: 'Bewertungsseiten'
+    NoneYet: 'Noch keine Bewertungen. Gib als Erster eine ab.'
     CompanyCount: '{count} Bewertung(en)'
     CompanyReviewTitle: 'Bewerten Sie unser Unternehmen'
     ReadCompanyReviews: 'Unsere Bewertungen lesen'
@@ -178,3 +180,27 @@ de:
   SilverShop\Reviews\Service\ReviewInvitationService:
     ReminderSubject: 'Eine Erinnerung, Ihre Bestellung von {shop} zu bewerten'
     Subject: 'Wie war Ihre Bestellung von {shop}?'
+  SilverShop\Reviews\Extension\ReviewablePageExtension:
+    CMSSummary: 'Durchschnittliche Bewertung: {avg} / 5 aus {count} freigegebenen Bewertung(en).'
+    Reviews: 'Bewertungen'
+    ReviewsInfo: 'Freigegebene Bewertungen erscheinen auf der Website und zählen zur Bewertung. Füge hier eine Bewertung hinzu oder lass Besucher selbst eine abgeben und setze dann das Häkchen bei „Freigegeben", um sie zu veröffentlichen.'
+    SaveFirst: 'Speichere diesen Eintrag zuerst, um seine Bewertungen zu verwalten.'
+  SilverShop\Reviews\Form\ReviewForm:
+    AddPhoto: 'Ein Foto hinzufügen'
+    AuthorEmail: 'Ihre E-Mail'
+    AuthorName: 'Ihr Name'
+    BadRating: 'Bitte wählen Sie eine Bewertung zwischen 1 und 5.'
+    ChooseRating: '(auswählen)'
+    Cons: 'Was könnte besser sein? (eine pro Zeile)'
+    Content: 'Ihre Bewertung'
+    EmailPrivate: 'Wird nicht veröffentlicht.'
+    Pros: 'Was war gut? (eine pro Zeile)'
+    Rating: 'Ihre Bewertung'
+    Submit: 'Bewertung absenden'
+    Thanks: 'Vielen Dank für Ihre Bewertung.'
+    ThanksModerated: 'Vielen Dank! Ihre Bewertung erscheint nach der Freigabe.'
+    Title: 'Titel'
+    TooFast: 'Bitte warten Sie einen Moment, bevor Sie eine weitere Bewertung absenden.'
+  SilverShop\Reviews\Service\ReviewPolicy:
+    GateMembers: 'Melde dich an, um eine Bewertung abzugeben.'
+    GateVerified: 'Nur verifizierte Kunden können eine Bewertung abgeben.'

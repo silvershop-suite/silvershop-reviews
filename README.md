@@ -7,8 +7,9 @@ Kiyoh / Klantenvertellen, The Feedback Company).
 
 ## Requirements
 
-- `silvershop/core` ^6
 - `silverstripe/framework` ^6 / PHP 8.3+
+- `silvershop/core` ^6 is optional: without it the module still does company/website reviews (on `SiteConfig`)
+  and reviews on any page or record (see below). Product reviews, verified purchases and invitation emails need it.
 
 ## Installation
 
@@ -49,6 +50,77 @@ Optional drop-ins:
 ```
 
 Product-level `aggregateRating` + review JSON-LD is emitted automatically by the product reviews include.
+
+## Reviews on any page or record (no shop needed)
+
+Anything can be reviewed: a treatment, a course, a venue, a service page. This works on a plain SilverStripe
+site without `silvershop/core`. Make the page class reviewable and give its controller the form:
+
+```yaml
+App\Pages\TreatmentPage:
+  extensions:
+    - SilverShop\Reviews\Extension\ReviewablePageExtension
+
+App\Pages\TreatmentPageController:
+  extensions:
+    - SilverShop\Reviews\Extension\ReviewablePageControllerExtension
+```
+
+Then add the section to the page template:
+
+```ss
+<% include SilverShop\Reviews\Reviews %>
+```
+
+That renders the rating summary, the per-star breakdown, the approved reviews (pros/cons, photos and helpful
+votes when enabled) with pagination, an aggregateRating JSON-LD block and the "write a review" form. The page gets
+a **Reviews** tab in the CMS with the moderation grid. Apply the extension to the classes that should be
+reviewable, not to the base `Page` (products already have their own).
+
+The reviewed record is always the page being viewed: the form takes its subject from the controller, never from
+the request, so a review can't be posted against another record.
+
+**Per-class settings.** `review_settings` on the reviewable class overrides any `Review` setting for that class
+only; keys you leave out fall back to the global `Review` config:
+
+```yaml
+App\Pages\TreatmentPage:
+  review_settings:
+    allow_reviews: true
+    moderation: true
+    who_can_review: anyone      # anyone | members ('verified' needs a shop purchase check)
+    require_content: true
+    allow_photos: false
+    allow_review_points: false
+    schema_type: 'Service'      # JSON-LD @type, default 'Thing'; '' = emit no JSON-LD
+```
+
+**JSON-LD.** `$ReviewsSchemaOrg` names the record (title + URL) with its `aggregateRating`. If your site builds its
+own schema graph, set `schema_type: ''` and use `$ReviewAggregateRating` (the `AggregateRating` node as an array) in
+that graph instead. Note that Google only shows review stars for
+[certain types](https://developers.google.com/search/docs/appearance/structured-data/review-snippet), and not for
+"self-serving" reviews of an `Organization` or `LocalBusiness` on its own site; the markup is still valid.
+
+**A record that isn't a page.** Add `ReviewablePageExtension` to the DataObject, and build the form in the
+controller that shows it, with that record as the subject:
+
+```php
+use SilverShop\Reviews\Form\ReviewForm;
+
+private static array $allowed_actions = ['ReviewForm'];
+
+public function ReviewForm(): ReviewForm
+{
+    return ReviewForm::create($this, 'ReviewForm', $this->currentRecord());
+}
+```
+
+Use `SilverShop\Reviews\Service\ReviewPolicy::canReview($record, $member)` and `::gateMessage()` for the
+"may this visitor review" checks.
+
+**Company reviews.** Reviews of the organisation itself already work through `SiteConfig` (the `shop-review` page,
+`ShopRating` badge and `ShopRatingSchemaOrg`). Set `SilverShop\Reviews\Extension\ShopReviewExtension.schema_type`
+to `LocalBusiness` for a local business.
 
 ## Routes
 
@@ -171,6 +243,8 @@ overriding templates/controllers. Apply an `Extension` to the relevant class:
 | `updateReview` | `SilverShop\Page\ProductController` | `($review, $data)` — before write |
 | `updateQuestionForm` | `SilverShop\Page\ProductController` | `($form)` |
 | `updateQuestion` | `SilverShop\Page\ProductController` | `($question, $data)` — before write |
+| `updateReviewForm` | `ReviewForm` and its controller (any reviewable page) | `($form)` |
+| `updateReview` | `ReviewForm` and its controller (any reviewable page) | `($review, $data)` — before write |
 | `updateShopReviewForm` | `ShopReviewController` | `($form)` |
 | `updateShopReview` | `ShopReviewController` | `($review, $data)` — before write |
 | `updateReviewInvitationForm` | `ReviewInvitationController` | `($form)` |
@@ -207,6 +281,7 @@ SilverShop\Page\ProductController:
 Every include is overridable by theme precedence (copy the path into your theme). Notable ones:
 
 - `SilverShop\Reviews\ProductReviews` — the whole product-page reviews section.
+- `SilverShop\Reviews\Reviews` — the reviews section for any reviewable page.
 - `SilverShop\Reviews\ReviewFormToggle` — *only* the JS that collapses the review form behind the "Write a
   review" button. Override to change it, leave an empty file to disable, or set `Review.collapse_write_form = false`.
 - `SilverShop\Reviews\ReviewRatingStars` — *only* the JS that turns the rating `<select>` into an interactive

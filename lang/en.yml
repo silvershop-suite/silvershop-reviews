@@ -3,6 +3,8 @@ en:
     TITLE: 'Rating'
     STARS: '{stars}★ and up'
   SilverShop\Reviews:
+    PagesLabel: 'Review pages'
+    NoneYet: 'No reviews yet. Be the first to leave one.'
     CompanyCount: '{count} review(s)'
     CompanyReviewTitle: 'Review our company'
     ReadCompanyReviews: 'Read our reviews'
@@ -185,3 +187,27 @@ en:
   SilverShop\Reviews\Service\ReviewInvitationService:
     ReminderSubject: 'A reminder to review your order from {shop}'
     Subject: 'How was your order from {shop}?'
+  SilverShop\Reviews\Extension\ReviewablePageExtension:
+    CMSSummary: 'Average rating: {avg} / 5 from {count} approved review(s).'
+    Reviews: 'Reviews'
+    ReviewsInfo: 'Approved reviews appear on the site and count towards the rating. Add a review here, or let visitors submit their own, then tick "Approved" to publish it.'
+    SaveFirst: 'Save this record first to manage its reviews.'
+  SilverShop\Reviews\Form\ReviewForm:
+    AddPhoto: 'Add a photo'
+    AuthorEmail: 'Your email'
+    AuthorName: 'Your name'
+    BadRating: 'Please choose a rating between 1 and 5.'
+    ChooseRating: '(choose)'
+    Cons: 'What could be better? (one per line)'
+    Content: 'Your review'
+    EmailPrivate: 'Not published.'
+    Pros: 'What was good? (one per line)'
+    Rating: 'Your rating'
+    Submit: 'Submit review'
+    Thanks: 'Thank you for your review.'
+    ThanksModerated: 'Thank you! Your review will appear once it has been approved.'
+    Title: 'Title'
+    TooFast: 'Please wait a moment before submitting another review.'
+  SilverShop\Reviews\Service\ReviewPolicy:
+    GateMembers: 'Please log in to leave a review.'
+    GateVerified: 'Only verified customers can leave a review.'

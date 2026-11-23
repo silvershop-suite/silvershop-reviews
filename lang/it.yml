@@ -3,6 +3,8 @@ it:
     TITLE: 'Valutazione'
     STARS: '{stars}★ e oltre'
   SilverShop\Reviews:
+    PagesLabel: 'Pagine delle recensioni'
+    NoneYet: 'Ancora nessuna recensione. Lascia tu la prima.'
     CompanyCount: '{count} recensione/i'
     CompanyReviewTitle: 'Valuta la nostra azienda'
     ReadCompanyReviews: 'Leggi le nostre recensioni'
@@ -178,3 +180,27 @@ it:
   SilverShop\Reviews\Service\ReviewInvitationService:
     ReminderSubject: 'Un promemoria per recensire il tuo ordine da {shop}'
     Subject: 'Com''è stato il tuo ordine da {shop}?'
+  SilverShop\Reviews\Extension\ReviewablePageExtension:
+    CMSSummary: 'Valutazione media: {avg} / 5 da {count} recensione/i approvata/e.'
+    Reviews: 'Recensioni'
+    ReviewsInfo: 'Le recensioni approvate appaiono sul sito e contribuiscono alla valutazione. Aggiungi una recensione qui, o lascia che i visitatori inviino la loro, poi spunta "Approvata" per pubblicarla.'
+    SaveFirst: 'Salva prima questo elemento per gestirne le recensioni.'
+  SilverShop\Reviews\Form\ReviewForm:
+    AddPhoto: 'Aggiungi una foto'
+    AuthorEmail: 'La tua email'
+    AuthorName: 'Il tuo nome'
+    BadRating: 'Scegli una valutazione tra 1 e 5.'
+    ChooseRating: '(scegli)'
+    Cons: 'Cosa potrebbe migliorare? (una per riga)'
+    Content: 'La tua recensione'
+    EmailPrivate: 'Non pubblicato.'
+    Pros: 'Cosa è andato bene? (una per riga)'
+    Rating: 'La tua valutazione'
+    Submit: 'Invia recensione'
+    Thanks: 'Grazie per la tua recensione.'
+    ThanksModerated: 'Grazie! La tua recensione apparirà dopo l''approvazione.'
+    Title: 'Titolo'
+    TooFast: 'Attendi un momento prima di inviare un''altra recensione.'
+  SilverShop\Reviews\Service\ReviewPolicy:
+    GateMembers: 'Accedi per lasciare una recensione.'
+    GateVerified: 'Solo i clienti verificati possono lasciare una recensione.'
